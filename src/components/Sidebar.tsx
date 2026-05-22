@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const NAV_ITEMS = [
-  { id: 'hero', label: 'Home', icon: 'home' },
-  { id: 'about', label: 'About', icon: 'person' },
-  { id: 'portfolio', label: 'Portfolio', icon: 'folder_special' },
-  { id: 'services', label: 'Store', icon: 'shopping_cart' },
-  { id: 'contact', label: 'Contact', icon: 'mail' },
+  { id: "hero", label: "Home", icon: "home" },
+  { id: "about", label: "About", icon: "person" },
+  { id: "portfolio", label: "Portfolio", icon: "folder_special" },
+  { id: "services", label: "Store", icon: "shopping_cart" },
+  { id: "contact", label: "Contact", icon: "mail" },
 ] as const;
 
 export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState<string>('hero');
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
   /* ── Scroll-spy via IntersectionObserver ── */
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Sidebar() {
           setActiveSection(visible[0].target.id);
         }
       },
-      { rootMargin: '-20% 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -77,7 +77,7 @@ export default function Sidebar() {
               REZA ARDA
             </h2>
             <p className="font-mono text-on-surface-variant text-code-sm mt-0.5">
-              Engine Architect
+              Indie Dev
             </p>
           </div>
         </div>
@@ -97,8 +97,8 @@ export default function Sidebar() {
                   transition-colors duration-200
                   ${
                     isActive
-                      ? 'bg-secondary-container text-on-secondary-container rounded-xl'
-                      : 'text-on-surface-variant hover:bg-surface-variant rounded-xl'
+                      ? "bg-secondary-container text-on-secondary-container rounded-xl"
+                      : "text-on-surface-variant hover:bg-surface-variant rounded-xl"
                   }
                 `}
               >
@@ -125,9 +125,7 @@ export default function Sidebar() {
           hover:bg-primary hover:text-on-primary
         "
       >
-        <span className="material-symbols-outlined text-[20px]">
-          download
-        </span>
+        <span className="material-symbols-outlined text-[20px]">download</span>
         Download CV
       </a>
     </aside>
