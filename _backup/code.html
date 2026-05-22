@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reza Arda Radesta - Indie Game Developer</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-tint": "#47d6ff",
+                            "surface-container-highest": "#2a3547",
+                            "background": "#071424",
+                            "secondary-fixed": "#f9d8ff",
+                            "on-tertiary-container": "#4c4f56",
+                            "error-container": "#93000a",
+                            "tertiary": "#dbdde6",
+                            "primary": "#a5e7ff",
+                            "surface-container-low": "#101c2c",
+                            "surface": "#071424",
+                            "on-error-container": "#ffdad6",
+                            "on-error": "#690005",
+                            "on-secondary": "#520070",
+                            "on-background": "#d7e3fa",
+                            "tertiary-fixed-dim": "#c4c6cf",
+                            "on-secondary-container": "#e498ff",
+                            "surface-bright": "#2e3a4b",
+                            "primary-container": "#00d2ff",
+                            "on-tertiary-fixed": "#191c22",
+                            "error": "#ffb4ab",
+                            "on-secondary-fixed": "#320046",
+                            "tertiary-container": "#bfc1ca",
+                            "outline-variant": "#3c494e",
+                            "on-primary-container": "#00566a",
+                            "primary-fixed-dim": "#47d6ff",
+                            "surface-variant": "#2a3547",
+                            "tertiary-fixed": "#e1e2eb",
+                            "secondary-container": "#6e208c",
+                            "inverse-on-surface": "#253142",
+                            "on-surface": "#d7e3fa",
+                            "surface-dim": "#071424",
+                            "surface-container": "#142031",
+                            "primary-fixed": "#b6ebff",
+                            "on-tertiary-fixed-variant": "#44474e",
+                            "secondary": "#edb1ff",
+                            "on-primary-fixed": "#001f28",
+                            "on-primary": "#003543",
+                            "secondary-fixed-dim": "#edb1ff",
+                            "outline": "#859399",
+                            "inverse-primary": "#00677f",
+                            "surface-container-lowest": "#030f1e",
+                            "on-tertiary": "#2e3037",
+                            "on-secondary-fixed-variant": "#6e208c",
+                            "on-primary-fixed-variant": "#004e60",
+                            "surface-container-high": "#1f2b3c",
+                            "inverse-surface": "#d7e3fa",
+                            "on-surface-variant": "#bbc9cf"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "stack-sm": "12px",
+                            "container-max": "1280px",
+                            "section-padding": "120px",
+                            "base": "8px",
+                            "stack-md": "24px",
+                            "stack-lg": "48px",
+                            "gutter": "24px"
+                    },
+                    "fontFamily": {
+                            "code-sm": ["JetBrains Mono"],
+                            "label-caps": ["JetBrains Mono"],
+                            "body-md": ["Inter"],
+                            "headline-md": ["Sora"],
+                            "display-xl": ["Sora"],
+                            "headline-lg-mobile": ["Sora"],
+                            "headline-lg": ["Sora"],
+                            "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                            "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                            "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                            "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                            "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .grid-bg {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glow-primary {
+            box-shadow: 0 4px 20px rgba(0, 210, 255, 0.2);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md grid-bg min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Shared Component -->
+<header class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0_4px_20px_rgba(0,210,255,0.2)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto ml-72">
+<div class="flex items-center gap-2 font-label-caps text-label-caps tracking-widest text-primary-container">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                R. RADESTA
+            </div>
+<nav class="hidden md:flex items-center gap-stack-md font-headline-md text-headline-md">
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:glow-sm transition-all duration-300 active:scale-95 transition-transform" href="#">Portfolio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:glow-sm transition-all duration-300 active:scale-95 transition-transform" href="#">Store</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 rounded-DEFAULT hover:glow-sm transition-all duration-300 active:scale-95 transition-transform">
+                Hire Me
+            </button>
+</div>
+</header>
+<!-- SideNavBar Shared Component -->
+<aside class="bg-surface-container-lowest/80 backdrop-blur-2xl h-full w-72 fixed left-0 top-0 z-[60] border-r border-white/10 shadow-2xl flex flex-col h-full p-stack-md justify-between">
+<div class="flex flex-col gap-stack-lg mt-8">
+<div class="flex flex-col items-center gap-stack-sm text-center">
+<div class="w-24 h-24 rounded-full overflow-hidden border-2 border-primary/50 shadow-[0_0_15px_rgba(0,210,255,0.3)]">
+<img alt="Reza Arda Radesta Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr3ztXXminFrbZWTamBVouLXVlTNHfX0f10LxaM7Lf5pCDlTSl00WP9ONhXf6X3Wbfv4yNDRWaque0mvYXiBZxNFzIw2RmE-orpoUXj5P09OM6Pc627c4CfKx_5dEcyGNy5T8oSVTtbcLe2UtT4yrK2IXNxzqWmxIeTGKwcVRHG98VFX1ulNcMDN7kD2e5Jr029k5XLFeY6shvC0zmEFTp7EeyQIrMyqt_uwVjls_dz6PuKmK69RougPQRiBdtWTi-6SQ7EoxzFH-C"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">REZA ARDA</h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Engine Architect</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 font-code-sm text-code-sm">
+<a class="bg-secondary-container text-on-secondary-container rounded-xl flex items-center gap-3 p-3 active:translate-x-1" href="#">
+<span class="material-symbols-outlined">home</span> Home
+                </a>
+<a class="text-on-surface-variant flex items-center gap-3 p-3 hover:bg-surface-variant rounded-xl hover:border-primary/50 transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">person</span> About
+                </a>
+<a class="text-on-surface-variant flex items-center gap-3 p-3 hover:bg-surface-variant rounded-xl hover:border-primary/50 transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">folder_special</span> Portfolio
+                </a>
+<a class="text-on-surface-variant flex items-center gap-3 p-3 hover:bg-surface-variant rounded-xl hover:border-primary/50 transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">shopping_cart</span> Store
+                </a>
+<a class="text-on-surface-variant flex items-center gap-3 p-3 hover:bg-surface-variant rounded-xl hover:border-primary/50 transition-all active:translate-x-1" href="#">
+<span class="material-symbols-outlined">mail</span> Contact
+                </a>
+</nav>
+</div>
+<button class="w-full border border-primary text-primary font-label-caps text-label-caps py-3 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors hover:glow-sm transition-all duration-300">
+            Download CV
+        </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-[100px] px-gutter max-w-container-max mx-auto flex flex-col gap-section-padding pb-section-padding">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center min-h-[716px]">
+<div class="flex flex-col gap-stack-md z-10">
+<div class="font-code-sm text-code-sm text-primary flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary"></span>
+<span class="tracking-widest uppercase">System Initialization Complete</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-on-surface leading-tight">
+                    Hi, I'm <br/>
+<span class="text-primary-container text-glow">Reza Arda Radesta</span>
+</h1>
+<h2 class="font-headline-md text-headline-md text-tertiary">
+                    Indie Game Developer <span class="text-outline">|</span> Programmer <span class="text-outline">|</span> 3D Artist
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Menciptakan pengalaman bermain game yang interaktif dan engaging. Menggabungkan arsitektur kode yang solid dengan estetika visual yang mendalam.
+                </p>
+<div class="flex gap-stack-sm mt-4">
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT glow-primary hover:bg-surface-tint transition-colors">
+                        Lihat Karya Saya
+                    </button>
+<button class="border border-outline text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT hover:border-primary-container hover:text-primary-container transition-colors bg-surface/50 backdrop-blur-md">
+                        Hubungi Saya
+                    </button>
+</div>
+</div>
+<div class="relative h-[500px] w-full rounded-xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(0,210,255,0.15)] group">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none"></div>
+<img alt="Gameplay Render" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed 3D render of a futuristic cyberpunk city alleyway at night, functioning as a high-end video game environmental asset showcase. The scene is illuminated by striking neon blue and pink holographic signs reflecting off wet pavement and metallic surfaces. The mood is cinematic, gritty, and technologically advanced, perfectly capturing a modern 'Cyber-Engine' dark mode aesthetic with deep obsidian shadows and luminous, glowing focal points." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLaqdV_l6Gh6lSCHQwDMXe8T1SF0RppQSlFAe1OHAOqoxNa0UinObsRPOzRYoGo6NbbsylGD0oqta184tUk8zCkAbNw7AEkrxAL6JFVlws8hgUsg0Sx9P8WjuaC8n5qUGfA4pBiR8er40oE7BSK9HThNUKk3Dvyf4zFaYIGSFx3HGM-4WoIaTkDWE7UzXtTDS66pWWOXw3GhMct0TdPDPr2IJUoYY6MMRByjdDh8BDnfC6cFD8rYaTbYo_uQb2t1fmwSIKsGZQJoVz"/>
+</div>
+</section>
+<!-- About & Tech Stack -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg bg-surface/40 backdrop-blur-xl p-stack-lg rounded-xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-[80px]"></div>
+<div class="flex flex-col gap-stack-md relative z-10">
+<h3 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-4xl">memory</span>
+                    About Architect
+                </h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Saat ini saya merupakan mahasiswa aktif di IIB Darmajaya yang memiliki passion mendalam di bidang pengembangan game. Fokus utama saya adalah merekayasa sistem gameplay yang kompleks dan merancang aset 3D yang optimal untuk real-time rendering.
+                </p>
+<div class="mt-auto pt-stack-sm">
+<button class="flex items-center gap-2 text-primary font-code-sm text-code-sm hover:text-primary-container transition-colors group">
+<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">download</span>
+                        Download Full CV Document
+                    </button>
+</div>
+</div>
+<div class="flex flex-col gap-stack-md relative z-10">
+<h4 class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest border-b border-white/10 pb-2">Core Tech Stack</h4>
+<div class="flex flex-wrap gap-3">
+<div class="px-4 py-2 border border-secondary-container rounded-DEFAULT font-code-sm text-code-sm text-secondary bg-surface-container-low/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span> Unity
+                    </div>
+<div class="px-4 py-2 border border-secondary-container rounded-DEFAULT font-code-sm text-code-sm text-secondary bg-surface-container-low/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">view_in_ar</span> Unreal Engine
+                    </div>
+<div class="px-4 py-2 border border-secondary-container rounded-DEFAULT font-code-sm text-code-sm text-secondary bg-surface-container-low/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">code_blocks</span> C#
+                    </div>
+<div class="px-4 py-2 border border-secondary-container rounded-DEFAULT font-code-sm text-code-sm text-secondary bg-surface-container-low/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">polyline</span> Blender
+                    </div>
+<div class="px-4 py-2 border border-secondary-container rounded-DEFAULT font-code-sm text-code-sm text-secondary bg-surface-container-low/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">sports_esports</span> Roblox Studio
+                    </div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="flex flex-col gap-stack-lg">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Featured Deployments</h3>
+<a class="font-code-sm text-code-sm text-primary hover:text-primary-container flex items-center gap-1" href="#">
+                    View All Archives <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-surface-container-low aspect-[4/5] flex flex-col justify-end">
+<img alt="Project 1" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A striking digital artwork serving as a video game cover image for 'Neon Shift'. It displays a retro-futuristic synthwave aesthetic with a glowing wireframe landscape extending towards a massive, neon-pink sun on the horizon. The lighting is high-contrast, heavily utilizing vivid magenta and deep cyan against a pitch-black starry sky, creating a nostalgic yet highly technical mood perfect for a high-octane indie game showcase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2a7V3Nmav3or7nXE9Kvvv4GMt666wpvPLXSPxWuh1a-AD3993W4-T8zNn0VWBxv2-Kx2O_dXmICdqfCN-RhU5LgC57uGuGndCPvCkbw2u3mi4yFosP_FF7DPF-iI1mvsUkltLRTzq6bMi1AdMrLryHVSqqY2naI6lLTH0ARd58_iuorNgF3m8OoRyVyShTbPuOoSAORzmLz4vec3ZQb6mpZ-v-Z4LcYXV1Vyi1EduSowyfauEY5ospbKrUZ97X4O3RWKEPWdD_pEx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 p-stack-md flex flex-col gap-stack-sm bg-surface/60 backdrop-blur-md border-t border-white/10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="flex gap-2">
+<span class="px-2 py-1 text-[10px] font-label-caps text-primary border border-primary/30 rounded">Lead Dev</span>
+<span class="px-2 py-1 text-[10px] font-label-caps text-secondary border border-secondary/30 rounded">3D Artist</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Neon Shift</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">A high-speed cyberpunk platformer utilizing custom gravity mechanics and real-time volumetric lighting.</p>
+<button class="mt-2 text-left font-code-sm text-code-sm text-primary flex items-center gap-2 hover:text-primary-container w-fit">
+                            Mainkan di Itch.io <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-surface-container-low aspect-[4/5] flex flex-col justify-end">
+<img alt="Project 2" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed digital rendering of a low-poly fantasy environment for an indie role-playing game. The scene features floating islands with vibrant, stylized green grass and ancient, glowing blue runic stones. The lighting is soft and magical, with a light-mode ethereal aesthetic that contrasts with the surrounding deep space void. The mood is adventurous and serene, highlighting expert 3D environmental modeling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY6nfA_tt2yChf1vADXTVU5lBjizl8CXnWd9-7qLHtbLcbYPd92IYvuefHBXpbsmwYK-Z2PsVPRBdJhZ8bb5R4HsL2-BbCbQLrWVQHgHUUojFzwcktznNayuQJV7bnbZoyM6id_a0maJZg1MMKwnD7VEMPwk0YXnE2vYWYbxt89n7_nP3zZDFg2dxUASESyJI7xPhJOvKMYTf5xP9fHdCp-6pMKTHAEpOs8rUm8LfQW-GjkL68BKXmk2fK32re7DJz0kJviACfs0az"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 p-stack-md flex flex-col gap-stack-sm bg-surface/60 backdrop-blur-md border-t border-white/10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="flex gap-2">
+<span class="px-2 py-1 text-[10px] font-label-caps text-primary border border-primary/30 rounded">Programmer</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Aetheria Ruins</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Exploration-focused puzzle game with dynamic procedural generation and advanced shader graphs.</p>
+<button class="mt-2 text-left font-code-sm text-code-sm text-primary flex items-center gap-2 hover:text-primary-container w-fit">
+                            Mainkan di Itch.io <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative rounded-xl overflow-hidden border border-white/10 bg-surface-container-low aspect-[4/5] flex flex-col justify-end">
+<img alt="Project 3" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An intense, close-up screenshot of a sci-fi first-person shooter game HUD. The image shows a sleek, metallic futuristic weapon glowing with neon cyan energy. In the background, out-of-focus enemies lurk in a dark, industrial corridor lit by harsh, flickering orange emergency lights. The aesthetic is gritty, high-tech, and action-packed, demonstrating advanced technical programming and lighting skills in a dark mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY-wHgDJISRUZEIJo9Wg64DNjW2SvacElEvPY-rAl4slNkRZq9YmOPIHKzEXHRUTRPH5U-OR73vzbYpvD0rZdFZc_1bOhKJtinWFtTlS_Q8jMysOTO4BsNjFNy42KNAOiHyP2KkuzYUyBcY_Yt4MQbuLmHyThZQnUeNxlq41t5Cv003CO_8OTJ13c8vePQ1mQaZfxqWFWogK9TfNLOTXrHBxld0Fwm-e5WTm_U_WhjRRFMKtk3RY2AqDp6oPVbtJ_wx2AQxw8pWQq8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="relative z-10 p-stack-md flex flex-col gap-stack-sm bg-surface/60 backdrop-blur-md border-t border-white/10 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="flex gap-2">
+<span class="px-2 py-1 text-[10px] font-label-caps text-primary border border-primary/30 rounded">Solo Dev</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Project: Void</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Fast-paced arena shooter showcasing AI pathfinding algorithms and optimized network replication.</p>
+<button class="mt-2 text-left font-code-sm text-code-sm text-primary flex items-center gap-2 hover:text-primary-container w-fit">
+                            Mainkan di Itch.io <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="bg-surface-container-low ml-72 w-[calc(100%-18rem)] py-stack-lg border-t border-white/5 no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter max-w-container-max mx-auto gap-stack-md">
+<div class="font-label-caps text-label-caps text-on-surface">
+                © 2024 REZA ARDA RADESTA | SYSTEMS ENGINEER
+            </div>
+<nav class="flex items-center gap-stack-md font-code-sm text-code-sm">
+<a class="text-primary underline opacity-80 hover:opacity-100 hover:text-primary-container transition-colors" href="#">LinkedIn</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary opacity-80 hover:opacity-100 hover:text-primary-container transition-colors" href="#">GitHub</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary opacity-80 hover:opacity-100 hover:text-primary-container transition-colors" href="#">Itch.io</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary opacity-80 hover:opacity-100 hover:text-primary-container transition-colors" href="#">Discord</a>
+</nav>
+</div>
+</footer>
+</body></html>
